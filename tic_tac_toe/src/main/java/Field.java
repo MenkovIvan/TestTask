@@ -4,7 +4,7 @@ public class Field {
 
     private int N;
 
-    private FieldState fieldState = new FieldState();   
+    private FieldState fieldState = new FieldState();
 
     private final strings[] array = {strings.X,strings.O};
 
@@ -39,7 +39,7 @@ public class Field {
         for (int i = 0; i < N; i++) { //check - endOfGame?
             for (int j = 0; j < N; j++) {
                 if (field.get(i * N + j).getValue() == strings._)
-                    fieldState.setResGame(0);
+                    fieldState.setResGame(0);  // mb end of game
             }
         }
         for (int k = 0; k < array.length; k++){
@@ -54,7 +54,6 @@ public class Field {
 
                     if (field.get(j * N + i).getValue() != array[k])
                         col = false;
-
                 }
                 if (str){
                     fieldState.setResGame(1); // win
@@ -81,15 +80,15 @@ public class Field {
 
             }
             if (first){
-                fieldState.setResGame(1);
-                fieldState.setResWin(3);
-                fieldState.setResDiagonal(1);
+                fieldState.setResGame(1); // win
+                fieldState.setResWin(3);  // in diagonal
+                fieldState.setResDiagonal(1); // left
             }
 
             if (second){
-                fieldState.setResGame(1);
-                fieldState.setResWin(3);
-                fieldState.setResDiagonal(2);
+                fieldState.setResGame(1); // win
+                fieldState.setResWin(3); // in diagonal
+                fieldState.setResDiagonal(2); // right
             }
         }
         return fieldState;

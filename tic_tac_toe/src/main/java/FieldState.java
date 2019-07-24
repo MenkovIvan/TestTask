@@ -11,7 +11,7 @@ public class FieldState {
     private int resDiagonal; // 1 - left, 2 -right
 
     public FieldState() {
-        this.resGame = 2;
+        this.resGame = 2; // if not ((not end of game) or (win)) = default 2 = drow
         this.resWin = 0;
         this.resString = -1;
         this.resColumn = -1;
