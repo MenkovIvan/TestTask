@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Field {
 
-    private int N;
+    private int N; // field N on N
 
     private FieldState fieldState = new FieldState();
 
@@ -39,10 +39,10 @@ public class Field {
         for (int i = 0; i < N; i++) { //check - endOfGame?
             for (int j = 0; j < N; j++) {
                 if (field.get(i * N + j).getValue() == strings._)
-                    fieldState.setResGame(0);  // mb end of game
+                    fieldState.setNotEndOfGame();  // mb end of game
             }
         }
-        for (int k = 0; k < array.length; k++){
+        for (int k = 0; k < array.length; k++){ // twice, for X and for O
 
             for (int i = 0; i < N; i++) { //check columns and strings
                 boolean col = true;
@@ -56,14 +56,13 @@ public class Field {
                         col = false;
                 }
                 if (str){
-                    fieldState.setResGame(1); // win
-                    fieldState.setResWin(1); // in string
+                    fieldState.setWin(); // win
+                    fieldState.setString(); // in string
                     fieldState.setResString(i+1); // number i+1
-                }
-
+                } else
                 if (col){
-                    fieldState.setResGame(1); // win
-                    fieldState.setResWin(2); // in column
+                    fieldState.setWin(); // win
+                    fieldState.setColumn(); // in column
                     fieldState.setResColumn(i+1); // number i+1
                 }
             }
@@ -80,15 +79,14 @@ public class Field {
 
             }
             if (first){
-                fieldState.setResGame(1); // win
-                fieldState.setResWin(3);  // in diagonal
-                fieldState.setResDiagonal(1); // left
-            }
-
+                fieldState.setWin(); // win
+                fieldState.setDiagonal();  // in diagonal
+                fieldState.setLeftDiagonal(); // left
+            } else
             if (second){
-                fieldState.setResGame(1); // win
-                fieldState.setResWin(3); // in diagonal
-                fieldState.setResDiagonal(2); // right
+                fieldState.setWin(); // win
+                fieldState.setDiagonal(); // in diagonal
+                fieldState.setRightDiagonal(); // right
             }
         }
         return fieldState;

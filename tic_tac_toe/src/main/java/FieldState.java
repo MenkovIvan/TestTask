@@ -54,12 +54,28 @@ public class FieldState {
         return resDiagonal;
     }
 
-    public void setResGame(int resGame) {
-        this.resGame = resGame;
+    public void setWin() {
+        this.resGame = 1;
     }
 
-    public void setResWin(int resWin) {
-        this.resWin = resWin;
+    public void setDrow() {
+        this.resGame = 2;
+    }
+
+    public void setNotEndOfGame() {
+        this.resGame = 0;
+    }
+
+    public void setString() {
+        this.resWin = 1;
+    }
+
+    public void setColumn() {
+        this.resWin = 2;
+    }
+
+    public void setDiagonal() {
+        this.resWin = 3;
     }
 
     public void setResString(int resString) {
@@ -70,8 +86,12 @@ public class FieldState {
         this.resColumn = resColumn;
     }
 
-    public void setResDiagonal(int resDiagonal) {
-        this.resDiagonal = resDiagonal;
+    public void setLeftDiagonal() {
+        this.resDiagonal = 1;
+    }
+
+    public void setRightDiagonal() {
+        this.resDiagonal = 2;
     }
 
     public void printFieldState(){
